@@ -42,7 +42,7 @@ next()
 userSchema.methods.isPasswordCorrect= async function(){
 return await bcrypt.compare("password",this.password)
 }
-userSchema.methods.refreshToken=function(){
+userSchema.methods.GenerateRefreshToken=function(){
     return jwt.sign({
   _id:this._id,
   email:this.email,
@@ -51,7 +51,7 @@ userSchema.methods.refreshToken=function(){
  process.env.REFRESH_TOKEN_SECRET, 
 { expiresIn: REFRESH_TOKEN_EXPIRY });
 },
-userSchema.methods.accessToken=function(){
+userSchema.methods.GenerateAccessToken=function(){
     return jwt.sign({
   _id:this._id,
   

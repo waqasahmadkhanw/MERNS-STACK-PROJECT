@@ -1,4 +1,4 @@
-class errorHandling extends Error{
+class Apierror extends Error{
     constructor(
         statuscode,
         message="Something went wrong",
@@ -15,4 +15,4 @@ this.stack=stack
 }
     }
 }
-export default errorHandling
+export default Apierror
